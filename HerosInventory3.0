@@ -1,0 +1,56 @@
+// HewrosInventory3.0.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+//работаем с итераторами (идентификаторами контейнеров)
+
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+int main()
+{
+    vector <string> inventory; // создаем вектор
+    inventory.push_back("sword"); //добавляем значения
+    inventory.push_back("armor");
+    inventory.push_back("shield");
+    vector<string>::iterator myIeterator; //задаем итератор для строкового вектора myIeterator
+    vector<string>::const_iterator iter; // задаем итератор - константу. Он позволяет "считать" данные вектора не изменяя их
+    cout << "Your items:\n" << endl;
+    for (iter = inventory.begin(); iter != inventory.end(); ++iter) { //Присваиваем итератору iter значение функции begin вектора inventory 
+        cout << *iter << endl; //Внимание * нужна для того что бы отобразить значение на которое ссылается итертор а не сам итератор
+    }
+    cout << "\nYou trade your sword for battle axe.\n";
+    myIeterator = inventory.begin(); //Делаем так, что бы итератор ссылался на первый элемент вектора
+    *myIeterator = "battle axe"; //Заменяем первый элемент вектора на новый
+    cout << "Your items:\n";
+    for (iter = inventory.begin(); iter != inventory.end(); ++iter) {
+        cout << *iter << endl;
+    }
+    cout << "\nThe item name: " << *myIeterator << " has "; //С попощью * разыменовываем итератор (см. коммент. выше)
+    cout << (*myIeterator).size() << " letters in it.\n";  // Скобки нужны что бы присвоить итератору значение полученное в результате разыменования (см. коммент. выше)
+    cout << "\n The items name: " << *myIeterator << " has ";
+    cout << myIeterator->size() << " letters in it.\n"; //Аналогично работы со скобками но более эстетично (см. коммент. выше)
+    cout << "You recover a crossbow from a slain enemy.";
+    inventory.insert(inventory.begin(), "crossbow"); //С помощью insert() можно добавить объект на определенную позицию в векторе(здесь перед первым объектом).
+    cout << "Your items: \n";
+    for (iter = inventory.begin(); iter != inventory.end();++iter) {
+        cout << *iter << endl;
+    }
+    cout << "Your armor destroyed in a ferice battle.";
+    inventory.erase((inventory.begin() + 2));// Спопмощью функции erase  удаляем объект из вектора (в данном случае 3ий)
+    cout << "Your items: \n";
+    for (iter = inventory.begin(); iter != inventory.end(); ++iter) {
+        cout << *iter << endl;
+    }
+    return 0;
+}
+//ВНИМАНИЕ! Использование функций push_back, insert, erase ВЫВОДЯТ ИЗ СТРОЯ ИТЕРАЛЫ Т.К. МЕНЯЮТ ПОРЯДОК ЭЛЕМЕНТОВ!!!
+// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
+// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
+
+// Советы по началу работы 
+//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
+//   2. В окне Team Explorer можно подключиться к системе управления версиями.
+//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
+//   4. В окне "Список ошибок" можно просматривать ошибки.
+//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
+//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
