@@ -1,0 +1,60 @@
+// HerosInventory2.0.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+//работаем с контейнерам стандартных шаблонов STL
+//и классом vector
+
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+int main()
+{
+    vector<string> inventory (10);//объявляем вектор  с 10 - ю строковыми элементами
+    inventory.push_back("SWORD"); //добавляем значения в вектор
+    inventory.push_back("ARMOR"); 
+    inventory.push_back("SHIELD");
+    cout << "You have " << inventory.size() << " items.\n";
+    cout << "Your items:\n";
+    for (unsigned int i = 0; i < inventory.size(); ++i)
+    {
+        cout << inventory[i] << endl;
+    }
+    cout << "\nYou trade yourre sword for a battle axe.";
+    inventory[0] = "battle axe";
+    cout << "Your items:\n";
+    for (unsigned int i = 0; i < inventory.size(); ++i)
+    {
+        cout << inventory[i] << endl;
+    }
+    cout << "\nThe item name '" << inventory[0] << "' has ";
+    cout << inventory[0].size() << " letters in it.\n";
+    cout << "\nYour shield is destroyed in a fierce battle.\n";
+    inventory.pop_back(); //Удаляет последнее значение вектора
+    cout << "Your items:\n";
+    for (unsigned int i = 0; i < inventory.size(); ++i)
+    {
+        cout << inventory[i] << endl;
+    }
+    cout << "\nYou were robbed of all of your possessions by a thief.";
+    inventory.clear();
+    if (inventory.empty()) {//проверка наличия данных в векторе
+        cout << "\nYou have nothing.\n";
+    }
+    else {
+        cout << "\nYou have at last one item.\n";
+    }
+    return 0;
+
+
+}
+
+// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
+// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
+
+// Советы по началу работы 
+//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
+//   2. В окне Team Explorer можно подключиться к системе управления версиями.
+//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
+//   4. В окне "Список ошибок" можно просматривать ошибки.
+//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
+//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
