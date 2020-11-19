@@ -1,0 +1,51 @@
+// Hero's Inventory.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+//пример работы со строковыми массивами
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    const int MAX_ITEMS = 10;
+    string inventory[MAX_ITEMS];
+    int numItems = 0;
+    inventory[numItems++] = "sword";
+    inventory[numItems++] = "shield";
+    inventory[numItems++] = "armor";
+    cout << "Youre items:\n";
+    for (int i = 0; i < numItems; ++i) {
+        cout << inventory[i] << endl;
+    }
+    cout << "\nYou trade your sword for a battle axe.\n";
+    inventory[0] = "BATTLE AXE";
+    cout << "Youre items:\n";
+    for (int i = 0; i < numItems; ++i) {
+        cout << inventory[i] << endl;
+    }
+    cout << "\nYour item name " << inventory[0] << " has ";
+    cout << inventory[0].size() << " letters in it.\n";
+    cout << "\n You find a healing potion.";
+    if (numItems < MAX_ITEMS) {
+        inventory[numItems++] = "healing potion";
+    }
+    else {
+        cout << "You have too many items and can't carry another.\n";
+    }
+    cout << "\nYour items: \n";
+    for (int i = 0; i < numItems; ++i) {
+        cout << inventory[i] << endl;
+    }
+    return 0;
+}
+
+// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
+// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
+
+// Советы по началу работы 
+//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
+//   2. В окне Team Explorer можно подключиться к системе управления версиями.
+//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
+//   4. В окне "Список ошибок" можно просматривать ошибки.
+//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
+//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
