@@ -8,7 +8,7 @@ int main()
 {
     int health = 80;
     cout << "Your health is: " << health << endl;
-    health = radiation(health);
+    health = radiation(health); //Вызов подставленной функиции
     cout << "After radiation explosur your health is: " << health << endl;
     health = radiation(health);
     cout << "After radiation explosur your health is: " << health << endl;
