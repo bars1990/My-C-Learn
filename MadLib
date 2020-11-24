@@ -1,0 +1,75 @@
+// MadLib.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+//
+
+#include <iostream>
+#include <string>
+using namespace std;
+string askText(string promt); 
+int askNumber(string promt);
+void tellStory(string name, string noun, int number, string bodyPart, string verb);
+
+int main()
+{
+    //Основная программа
+    cout << "Welcome to Mad Lib!"<< "\n\n";
+    cout << "Answer the following question to help create a new story." << "\n\n";
+    string name = askText("please enter the name: ");
+    string noun = askText("Please enter a plural noun: ");
+    int number = askNumber("Please enter a number: ");
+    string bodyPart = askText("PLease enter a body part: ");
+    string verb = askText("Olease enter a verb: ");
+    tellStory(name, noun, number, bodyPart, verb);
+    return 0;
+}
+string askText(string promt) { /*Универсальная функция для запроса данных у ползователя.
+                               можно использовать для запроса разных данных*/
+    string text;
+    cout << promt;
+    cin >> text;
+    return text;
+}
+int askNumber(string promt) {/*Универсальная функция запроса у пользователя чисел.
+                             Запрашиваем у пользователя данные ( параметер string promt) а на выводе получаем целое число
+                             int для дальнейшей работы*/
+    int num;
+    cout << promt;
+    cin >> num;
+    return num;
+}
+void tellStory(string name, string noun, int number, string bodyPart, string verb) { /*Функция принимает все введенные пользователем данны
+                                                                                     и формирует историю*/
+    cout << "\nHere's your story:\n\n";
+    cout << "The famius explorer ";
+    cout << name;
+    cout << " had nearly given up a life-long quest to find.\n";
+    cout << "The Lost City of ";
+    cout << noun;
+    cout << " when one day, the ";
+    cout << noun;
+    cout << " foud the explorer.\n";
+    cout << "Surrounde by ";
+    cout << number;
+    cout << " " << noun;
+    cout << " , a tear came to ";
+    cout << name << "'s ";
+    cout << bodyPart << ".\n";
+    cout << "After this time, the quest was finally over. ";
+    cout << "And then, the ";
+    cout << noun << "\n";
+    cout << "prompty devoured ";
+    cout << name << ". ";
+    cout << "the moral of the story? Be careful what you ";
+    cout << verb;
+    cout << " for.";
+}
+
+// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
+// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
+
+// Советы по началу работы 
+//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
+//   2. В окне Team Explorer можно подключиться к системе управления версиями.
+//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
+//   4. В окне "Список ошибок" можно просматривать ошибки.
+//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
+//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
