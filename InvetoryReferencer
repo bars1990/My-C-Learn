@@ -1,0 +1,50 @@
+// InventoryReferencer.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+//программа демонстрирует работу с возважаемыми значениями ссылки
+
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+string& refToElement(vector<string>& inventory, int i);//Испульзуя sring& - ссылочный оператор, указываем что функция возвращает строковое значение
+
+int main()
+{
+    vector<string> inventory;
+    inventory.push_back("armor");
+    inventory.push_back("sword");
+    inventory.push_back("shield");
+    //Отображается строка на которую указывает возвращенная ссылка
+    cout << "Sending the returned reference to cout:\n";
+    cout << refToElement(inventory, 0) << endl;
+    //присваиваем отдну ссылку другой - малозатратная операция
+    cout << "Assigning the returned reference to another reference to cout:\n";
+    string& rStr = refToElement(inventory, 1);
+    cout << "Sending the new reference to cout:\n";
+    cout << rStr << endl;
+    //копируем строковый объект - затратная операция
+    cout << "Assigning the returned reference to a string object:\n";
+    string str = refToElement(inventory, 2);
+    cout << "Sending a new string object to cout:\n";
+    cout << str << endl;
+    //изменнение строкового объекта посредством возвращенной ссылки
+    cout << "Altering an object though a returned reference.\n";
+    rStr = "Healing Potion";
+    cout << "sending the altered object to cout:\n";
+    cout << inventory[1] << endl;
+    return 0;
+}
+//возвращает ссылку на строку
+string& refToElement(vector<string>& vec, int i) {
+    return vec[i];
+}
+
+// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
+// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
+
+// Советы по началу работы 
+//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
+//   2. В окне Team Explorer можно подключиться к системе управления версиями.
+//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
+//   4. В окне "Список ошибок" можно просматривать ошибки.
+//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
+//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
